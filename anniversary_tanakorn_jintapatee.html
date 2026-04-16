@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanakorn ❤️ Jintapatee</title>
+<style>
+body{
+font-family: Arial, sans-serif;
+text-align:center;
+background: linear-gradient(135deg,#ff6a88,#ff99ac);
+color:white;
+height:100vh;
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+#counter{font-size:32px;margin-top:20px}
+input,button{
+padding:10px 14px;
+font-size:16px;
+border:none;
+border-radius:8px;
+margin-top:10px;
+}
+button{background:#ff3366;color:white;cursor:pointer}
+</style>
+</head>
+
+<body>
+
+<div id="login">
+<h2>🔒 ใส่รหัสเพื่อดูวันครบรอบ</h2>
+<input type="password" id="pass" placeholder="Password">
+<br>
+<button onclick="check()">เข้า</button>
+</div>
+
+<div id="content" style="display:none;">
+<h1>Tanakorn ❤️ Jintapatee</h1>
+<h2>เราอยู่ด้วยกันมาแล้ว</h2>
+<div id="counter"></div>
+</div>
+
+<script>
+function check(){
+if(document.getElementById("pass").value=="610429"){
+document.getElementById("login").style.display="none";
+document.getElementById("content").style.display="block";
+start();
+}else{
+alert("รหัสผ่านผิด");
+}
+}
+
+function start(){
+let startDate=new Date("2003-04-12T00:00:00");
+setInterval(()=>{
+let now=new Date();
+let diff=now-startDate;
+
+let days=Math.floor(diff/(1000*60*60*24));
+let hours=Math.floor((diff/(1000*60*60))%24);
+let minutes=Math.floor((diff/(1000*60))%60);
+let seconds=Math.floor((diff/1000)%60);
+
+document.getElementById("counter").innerHTML =
+days+" วัน "+hours+" ชั่วโมง "+minutes+" นาที "+seconds+" วินาที";
+},1000);
+}
+</script>
+
+</body>
+</html>
